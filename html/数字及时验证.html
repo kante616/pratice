@@ -1,10 +1,16 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>hello</title>
+    <title>数字及时验证</title>
 	<meta charset="utf-8" />
+    <script type="text/javascript" src="../JavsScript/数字及时验证.js"></script>
 </head>
 <body>
-
+    <h3>数字及时验证</h3>
+    <form name="myform">
+        <input type="text" id="aaa" name="aaa" value="0.00" onblur="checkDecimal(this)"/><br /><br />
+        合计：
+        <input type="text" id="bbb" name="bbb" /><br /><br />
+    </form>
 </body>
 </html>
