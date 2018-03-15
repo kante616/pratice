@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>打字效果的文字</title>
+	<meta charset="utf-8" />
+    <!--<script type="text/javascript" src="../JavsScript/打字效果的文字.js"></script>-->
+    <link rel="stylesheet" type="text/css" href="../CSS/打字效果的文字.css" />
+</head>
+<body>
+    风松水月的最新微博信息：<a id="HotNews" href="" target="_blank"></a>
+</body>
+</html>
+<script language="JavaScript">
+    var NewsTime = 2000;
+    var TextTime = 50;
+    var newsi = 0;
+    var txti = 0;
+    var txttimer;
+    var newstimer;
+    var newstitle = new Array();
+    var newshref = new Array();
+    newstitle[0] = "健康是身体的本钱";
+    newshref[0] = "#";
+    newstitle[1] = "关心身体，就是关心自己";
+    newshref[1] = "#";
+    newstitle[2] = "去西藏旅游了";
+    newshref[2] = "#";
+    newstitle[3] = "大雨倾盆，很大呀";
+    newshref[3] = "#";
+
+    function shownew() {
+        var endstr = "_";
+        hwnewstr = newstitle[newsi];
+        newslink = newshref[newsi];
+        if (txti == (hwnewstr.length - 1)) {
+            endstr = "";
+        }
+        if (txti >= hwnewstr.length) {
+            clearInterval(txttimer);
+            clearInterval(newstimer);
+            newsi++;
+            if (newsi >= newstitle.length) {
+                newsi = 0;
+            }
+            newstimer = setInterval("shownew()", NewsTime);
+            txti = 0;
+            return;
+        }
+        clearInterval(txttimer);
+        document.getElementById("HotNews").href = newslink;
+        document.getElementById("HotNews").innerHTML = hwnewstr.substring(0, txti + 1) + endstr;
+        txti++;
+        txttimer = setInterval("shownew()", TextTime);
+    }
+    shownew();
+</script>
